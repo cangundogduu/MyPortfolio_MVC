@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ca57ca74b8e14baa8713421252b7daed" Name="Diagram1">
+        <EntityTypeShape EntityType="MyPortfolioDbModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPortfolioDbModel.TblAbout" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPortfolioDbModel.TblBanner" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPortfolioDbModel.TblCategory" Width="1.5" PointX="2.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPortfolioDbModel.TblContact" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPortfolioDbModel.TblEducation" Width="1.5" PointX="6.875" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPortfolioDbModel.TblExperience" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPortfolioDbModel.TblExpertis" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPortfolioDbModel.TblMessage" Width="1.5" PointX="8.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPortfolioDbModel.TblProject" Width="1.5" PointX="4.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPortfolioDbModel.TblSocialMedia" Width="1.5" PointX="2.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPortfolioDbModel.TblTestimonial" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="MyPortfolioDbModel.FK_TblProjects_TblCategories" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
