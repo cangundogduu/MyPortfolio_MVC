@@ -29,8 +29,8 @@
                 <td>@item.Description</td>
                 <td>@item.TblCategory.Name</td>
                 <td><a href="@item.GithubUrl" class="btn btn-outline-warning">Github Linki</a></td>
-                <td><a href="/Project/DeleteProject/" class="btn btn-outline-danger">Sil</a></td>
-                <td><a href="/Project/UpdateProject/" class="btn btn-outline-info">Güncelle</a></td>
+                <td><a href="/Project/DeleteProject/@item.ProjectId" class="btn btn-outline-danger">Sil</a></td>
+                <td><a href="/Project/UpdateProject/@item.ProjectId" class="btn btn-outline-info">Güncelle</a></td>
             </tr>
                 }
             

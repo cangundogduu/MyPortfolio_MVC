@@ -1,0 +1,38 @@
+﻿@model MyPortfolio_MVC.Models.TblProject
+@{
+    ViewBag.Title = "CreateProject";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<h2>Yeni Proje Ekleme Sayfası</h2>
+
+<form method="post">
+
+    <label>PROJE ADI</label>
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <p class="text-danger">@Html.ValidationMessageFor(x => x.Name)</p>
+    <br />
+
+    <label>GÖRSEL URL</label>
+    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    <p class="text-danger">@Html.ValidationMessageFor(x => x.ImageUrl)</p>
+    <br />
+
+    <label>KATEGORİ</label>
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.categories, "Kategori Seçiniz", new { @class = "form-control bg-dark" })
+    <p class="text-danger">@Html.ValidationMessageFor(x => x.CategoryId)</p>
+    <br />
+
+    <label>AÇIKLAMA</label>
+    @Html.TextAreaFor(x => x.Description, 5, 1, new { @class = "form-control" })
+    <p class="text-danger">@Html.ValidationMessageFor(x => x.Description)</p>
+    <br />
+
+    <label>GİTHUB URL</label>
+    @Html.TextBoxFor(x => x.GithubUrl, new { @class = "form-control" })
+    <p class="text-danger">@Html.ValidationMessageFor(x => x.GithubUrl)</p>
+    <br />
+
+    <button class="btn btn-outline-success">Kaydet</button>
+
+</form>
