@@ -12,15 +12,13 @@ namespace MyPortfolio_MVC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TblProject
+    public partial class TblAdmin
     {
-        public int ProjectId { get; set; }
+        public int AdminId { get; set; }
+        public string Email { get; set; }
+        public string password { get; set; }
         public string Name { get; set; }
+        public string Surname { get; set; }
         public string ImageUrl { get; set; }
-        public string Description { get; set; }
-        public int CategoryId { get; set; }
-        public string GithubUrl { get; set; }
-    
-        public virtual TblCategory TblCategory { get; set; }
     }
 }

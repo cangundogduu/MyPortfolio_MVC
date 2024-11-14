@@ -1,0 +1,35 @@
+﻿@model MyPortfolio_MVC.Models.TblEducation
+@{
+    ViewBag.Title = "CreateEducation";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<h2>Yeni Eğitim Ekleme Sayfası</h2>
+
+<form method="post">
+    <label>Okul Adı</label>
+    @Html.TextBoxFor(m => m.SchoolName, new { @class = "form-control" })
+    <br />
+    <label>Bölüm Adı</label>
+    @Html.TextBoxFor(m => m.Department, new { @class = "form-control" })
+    <br />
+    <label>Açıklama</label>
+    @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+    <br />
+    <label>Başlama Tarihi</label>
+    <input type="date" name="StartDate" class="form-control" />
+    <br />
+    <label>Bitiş Tarihi<span><strong>(Eğer Devam Ediyorsa Bu Alanı Boş Bırakınız.)</strong></span></label>
+    <input type="date" name="EndDate" class="form-control" />
+    <br />
+    <label>Derece</label>
+    <select name="Degree" class="form-control">
+        <option disabled>Seçiminizi yapınız.</option>
+        <option value="Önlisans">Önlisans</option>
+        <option value="Lisans">Lisans</option>
+        <option value="Yüksek Lisans">Yüksek Lisans</option>
+    </select>
+    <br />
+    <button class="btn btn-outline-primary">Kaydet</button>
+    <br />
+</form>
