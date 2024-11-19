@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyPortfolio_MVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,7 +9,8 @@ namespace MyPortfolio_MVC.Controllers
 {
     public class AdminLayoutController : Controller
     {
-        // GET: AdminLayout
+       MyPortfolioDbEntities db =new MyPortfolioDbEntities();
+
         public ActionResult Layout()
         {
             return View();
@@ -31,6 +33,8 @@ namespace MyPortfolio_MVC.Controllers
 
         public PartialViewResult AdminLayoutNavbar() 
         {
+            ViewBag.nameSurname = db.TblAdmins.Where(x => x.Email == Session["email"].ToString()).Select(x => x.Name + " " + x.Surname);
+            ViewBag.image = db.TblAdmins.Where(x => x.Email == Session["email"].ToString()).Select(x => x.ImageUrl);
             return PartialView();
         }
 
