@@ -9,7 +9,7 @@ namespace MyPortfolio_MVC.Controllers
 {
     public class AdminLayoutController : Controller
     {
-       MyPortfolioDbEntities db =new MyPortfolioDbEntities();
+        MyPortfolioDbEntities db = new MyPortfolioDbEntities();
 
         public ActionResult Layout()
         {
@@ -28,13 +28,21 @@ namespace MyPortfolio_MVC.Controllers
 
         public PartialViewResult AdminLayoutSidebar()
         {
+            var email = Session["email"].ToString();
+            var admin = db.TblAdmins.FirstOrDefault(x => x.Email == email);
+
+            ViewBag.nameSurname = admin.Name + " " + admin.Surname;
+            ViewBag.image = admin.ImageUrl;
             return PartialView();
         }
 
-        public PartialViewResult AdminLayoutNavbar() 
+        public PartialViewResult AdminLayoutNavbar()
         {
-            ViewBag.nameSurname = db.TblAdmins.Where(x => x.Email == Session["email"].ToString()).Select(x => x.Name + " " + x.Surname);
-            ViewBag.image = db.TblAdmins.Where(x => x.Email == Session["email"].ToString()).Select(x => x.ImageUrl);
+            var email = Session["email"].ToString();
+            var admin = db.TblAdmins.FirstOrDefault(x => x.Email == email);
+
+            ViewBag.nameSurname = admin.Name + " " + admin.Surname;
+            ViewBag.image = admin.ImageUrl;
             return PartialView();
         }
 
