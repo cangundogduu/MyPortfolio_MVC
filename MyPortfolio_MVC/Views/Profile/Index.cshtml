@@ -4,7 +4,7 @@
     Layout = "~/Views/AdminLayout/Layout.cshtml";
 }
 
-<h2>Profil Bilgileri Güncelleme SAyfası</h2>
+<h2>Profil Bilgileri Güncelleme Sayfası</h2>
 
 
 <form method="post" enctype="multipart/form-data">
@@ -16,7 +16,8 @@
 
 
     <label>Profil Resmi Yükleyin</label>
-    <input type="file" name="ImageFile" />
+    <br />
+    <input type="file" name="ImageFile" class="form-control" />
     <br />
     <label>Ad</label>
     <input type="text" name="Name" class="form-control" value="@Model.Name" />
