@@ -1,0 +1,28 @@
+﻿@model MyPortfolio_MVC.Models.TblMessage
+@{
+    ViewBag.Title = "MessageDetail";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<h2>Messaj içeriği</h2>
+<br />
+<table class="table table-striped">
+    <tr>
+        <th>Gönderen Ad Soyad:</th>
+        <td>@Model.Name</td>
+    </tr>
+    <br />
+
+    <tr>
+        <th>Email</th>
+        <td>@Model.Email</td>
+    </tr>
+    <br />
+
+    <tr>
+        <th>Mesaj</th>
+        <td>@Model.MessageContent</td>
+    </tr>
+
+</table>
+<a href="/Message/Index" class="btn btn-primary">Mesajlara Geri Dön.</a>

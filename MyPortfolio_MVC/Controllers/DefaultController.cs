@@ -33,16 +33,46 @@ namespace MyPortfolio_MVC.Controllers
 
         public PartialViewResult DefaultExperience()
         {
-            var values=db.TblExperiences.ToList();
+            var values = db.TblExperiences.ToList();
             return PartialView(values);
         }
 
         public PartialViewResult DefaultProjects()
         {
-            var values=db.TblProjects.ToList();
+            var values = db.TblProjects.ToList();
             return PartialView(values);
         }
 
+
+        [HttpGet]
+        public PartialViewResult SendMessage()
+        {
+            return PartialView();
+        }
+
+
+        [HttpPost]
+        public ActionResult SendMessage(TblMessage model)
+        {
+            model.IsRead = false;
+            db.TblMessages.Add(model);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
+        public PartialViewResult DefaultAbout() 
+        {
+            var values= db.TblAbouts.ToList();
+            return PartialView(values);
+        }
+
+
+        public PartialViewResult DefaultEducation()
+        {
+            var values = db.TblEducations.ToList();
+            return PartialView(values);
+        }
 
     }
 }
