@@ -11,7 +11,9 @@ namespace MyPortfolio_MVC.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Web;
+
     public partial class TblAbout
     {
         public int AboutId { get; set; }
@@ -19,5 +21,11 @@ namespace MyPortfolio_MVC.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public string CvUrl { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase ImageFile { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase CvFile { get; set; }
     }
 }
