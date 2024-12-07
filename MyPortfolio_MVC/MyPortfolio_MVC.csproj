@@ -469,6 +469,8 @@
     <Content Include="Views\Message\Index.cshtml" />
     <Content Include="Views\Message\MessageDetail.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\AdminLayout\AdminLayoutNavbarMessage.cshtml" />
+    <Content Include="Views\About\UpdateAbout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,4 +1,5 @@
-﻿using MyPortfolio_MVC.Models;
+﻿using Microsoft.Ajax.Utilities;
+using MyPortfolio_MVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,6 +54,17 @@ namespace MyPortfolio_MVC.Controllers
         public PartialViewResult AdminLayoutScripts()
         {
             return PartialView();
+        }
+
+        public PartialViewResult AdminLayoutNavbarMessage()
+        {
+            //var email=Session["email"].ToString();
+            //var admin = db.TblAdmins.FirstOrDefault(x=>x.Email==email);
+            //ViewBag.nameSurname = admin.Name;
+            //ViewBag.image = admin.ImageUrl;
+            var unReadMessages=db.TblMessages.Where(x=>x.IsRead==false).OrderByDescending(x=>x.MessageId).Take(3).ToList();
+          
+            return PartialView(unReadMessages);
         }
     }
 }

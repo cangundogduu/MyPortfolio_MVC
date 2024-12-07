@@ -1,24 +1,39 @@
-﻿@model MyPortfolio_MVC.Models.TblAbout
+﻿@model List<MyPortfolio_MVC.Models.TblAbout>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/AdminLayout/Layout.cshtml";
 }
 
 <h2>Hakkımda Alanı</h2>
-<form method="post" enctype="multipart/form-data">
-    @Html.HiddenFor(x => x.AboutId)
-    <label>Başlık</label>
-    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
-    <br />
-    <label>Açıklama</label>
-    <br />
-    @Html.TextAreaFor(x => x.Description, 5, 100, new { @class = "form-control" })
-    <br />
-    <label>Resim Yükleyiniz..</label>
-    <input type="file" name="ImageFile" class="form-control" />
-    <br />
-    <label>Cv yükleyiniz...</label>
-    <input type="file" name="CvFile" class="form-control" />
-    <br />
-    <button class="btn btn-outline-primary">Bilgileri Güncelle</button>
-</form>
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+
+            <th>#</th>
+            <th>Hakkımda Adınız</th>
+            <th>Hakkımda Açıklama</th>
+            <th>Resim URL</th>
+            <th>CV URL</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.AboutId</th>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+            <td>@item.ImageUrl</td>
+            <td>@item.CvUrl</td>
+            <td><a href="/About/DeleteAbout/@item.AboutId" class="btn btn-outline-danger">Sil</a> </td>
+            <td><a href="/About/UpdateAbout/@item.AboutId" class="btn btn-outline-info">Güncelle</a> </td>
+        </tr>
+    }
+
+
+
+</table>
+<br />
+<a href="#" class="btn btn-primary">Yeni Hakkımda Alanı Ekle</a>

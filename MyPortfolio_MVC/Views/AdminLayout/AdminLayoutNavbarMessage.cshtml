@@ -1,0 +1,24 @@
+﻿@model List<MyPortfolio_MVC.Models.TblMessage>
+
+<div class="nav-item dropdown">
+    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+        <i class="fa fa-envelope me-lg-2"></i>
+        <span class="d-none d-lg-inline-flex">Mesajlar</span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+
+        @foreach (var item in Model)
+        {
+            <a href="/AdminLayout/AdminLayoutNavbarMessage/" class="dropdown-item">
+                <div class="d-flex align-items-center">
+                    <div class="ms-2">
+                        <h6 class="fw-normal mb-0">@item.Name</h6>
+                        <small>@item.MessageContent</small>
+                    </div>
+                </div>
+            </a>
+        }
+        <hr class="dropdown-divider">
+        <a href="/Message/Index" class="dropdown-item text-center">Tümünü Görüntüle</a>
+    </div>
+</div>

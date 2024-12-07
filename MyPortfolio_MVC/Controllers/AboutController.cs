@@ -11,22 +11,36 @@ namespace MyPortfolio_MVC.Controllers
     public class AboutController : Controller
     {
         // GET: About
-        MyPortfolioDbEntities db= new MyPortfolioDbEntities();
+        MyPortfolioDbEntities db = new MyPortfolioDbEntities();
 
-        [HttpGet]
+       
         public ActionResult Index()
         {
-            var value= db.TblAbouts.FirstOrDefault();
+            var values = db.TblAbouts.ToList();
+            return View(values);
+        }
+
+
+        public ActionResult DeleteAbout(int id)
+        {
+            var value= db.TblAbouts.Find(id);
+            db.TblAbouts.Remove(value);
+            db.SaveChanges();
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult UpdateAbout(int id)
+        {
+            var value = db.TblAbouts.Find(id);
             return View(value);
         }
 
 
-
-
         [HttpPost]
-        public ActionResult Index(TblAbout model)
+        public ActionResult UpdateAbout(TblAbout model)
         {
-            var value = db.TblAbouts.FirstOrDefault(x => x.AboutId == model.AboutId);
+            var value = db.TblAbouts.Find(model.AboutId);
 
             if (model.ImageFile != null)
             {
@@ -34,14 +48,30 @@ namespace MyPortfolio_MVC.Controllers
                 var saveLocation = currentDirectory + "images\\";
                 var fileName = Path.Combine(saveLocation, model.ImageFile.FileName);
                 model.ImageFile.SaveAs(fileName);
-                value.ImageUrl = "/images/" + model.ImageFile.FileName;
+                model.ImageUrl = "/images/" + model.ImageFile.FileName;
             }
+
+            if (model.CvFile != null)
+            { 
+                var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                var saveLocation = currentDirectory + "Cv\\";
+                if (!Directory.Exists(saveLocation))
+                {
+                    Directory.CreateDirectory(saveLocation);
+                }
+                var fileName = Path.Combine(saveLocation, model.CvFile.FileName);
+                model.CvFile.SaveAs(fileName);
+                model.CvUrl = "/Cv/" + model.CvFile.FileName;
+ 
+            }
+
             value.Title = model.Title;
             value.Description = model.Description;
+            value.ImageUrl=model.ImageUrl;
             value.CvUrl = model.CvUrl;
             db.SaveChanges();
 
-            return View(model);
+            return RedirectToAction("Index");
         }
 
     }
