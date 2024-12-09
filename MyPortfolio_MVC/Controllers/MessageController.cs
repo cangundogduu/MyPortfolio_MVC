@@ -24,13 +24,6 @@ namespace MyPortfolio_MVC.Controllers
             return PartialView(value);
         }
 
-        //[HttpPost]
-        //public ActionResult MakeMessageRead(int id) 
-        //{
-        //var value=db.TblMessages.Find(id);
-        //    value.IsRead=true;
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
+        
     }
 }

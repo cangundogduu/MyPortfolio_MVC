@@ -1,0 +1,10 @@
+﻿@model List<MyPortfolio_MVC.Models.TblSocialMedia>
+
+
+
+<ul class="intro-social">
+    @foreach (var item in Model)
+    {
+        <li><a href="@item.Url">@item.Name</a></li>
+    }
+    </ul>

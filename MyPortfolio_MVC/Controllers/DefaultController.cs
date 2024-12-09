@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.Mvc;
 
@@ -74,5 +75,28 @@ namespace MyPortfolio_MVC.Controllers
             return PartialView(values);
         }
 
+        public PartialViewResult DefaultSocialMedia()
+        {
+            var values=db.TblSocialMedias.ToList();
+            return PartialView(values);
+        }
+
+        public PartialViewResult DefaultTestimonial()
+        {
+            var values= db.TblTestimonials.ToList();
+            return PartialView(values);
+        }
+
+        public PartialViewResult DefaultContact()
+        {
+            var values= db.TblContacts.ToList();
+            return PartialView(values);
+        }
+
+        public PartialViewResult DefaultContactSocialMedia()
+        {
+            var values = db.TblSocialMedias.ToList();
+            return PartialView(values);
+        }
     }
 }
