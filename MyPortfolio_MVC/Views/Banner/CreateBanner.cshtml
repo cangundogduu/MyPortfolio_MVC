@@ -1,0 +1,22 @@
+﻿@model MyPortfolio_MVC.Models.TblBanner
+@{
+    ViewBag.Title = "CreateBanner";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<h2>Create Banner</h2>
+<form method="post">
+    <label>Başlık</label>
+    <br />
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    <label>Açıklama</label>
+    <br />
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    <br />
+    <label>Gösterim</label>
+    <br />
+    @Html.TextBoxFor(x => x.IsShown, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+</form>

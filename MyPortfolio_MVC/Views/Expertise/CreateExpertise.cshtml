@@ -1,0 +1,13 @@
+﻿@model MyPortfolio_MVC.Models.TblExpertis
+@{
+    ViewBag.Title = "CreateExpertise";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<h2>Yeni Uzmanlık Alanı Oluştur</h2>
+<form method="post">
+    <label>Uzmanlık Alanı Adı</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-primary">Ekle</button>
+</form>

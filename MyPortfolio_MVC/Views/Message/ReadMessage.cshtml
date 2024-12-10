@@ -1,10 +1,12 @@
 ﻿@model List<MyPortfolio_MVC.Models.TblMessage>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "ReadMessage";
     Layout = "~/Views/AdminLayout/Layout.cshtml";
     int count = 0;
 }
-<h2>Okunmayan Mesajlarım</h2>
+
+<h2>Okunmuş Mesajlar</h2>
+
 <br />
 <table class="table table-striped">
     <thead>
@@ -29,12 +31,11 @@
                 <td>@item.Email</td>
                 <td>@item.Subject</td>
                 <td><a href="/Message/DeleteMessage/@item.MessageId" class="btn btn-outline-danger">Sil</a> </td>
-                <td><a href="/Message/MessageDetail/@item.MessageId" class="btn btn-outline-primary"> Mesajı Aç</a></td>
+                <td><a href="/Message/ReadMessageDetail/@item.MessageId" class="btn btn-outline-primary"> Mesajı Aç</a></td>
             </tr>
         }
     </tbody>
 
 
-
 </table>
-    <a href="/Message/ReadMessage/" class="btn btn-outline-primary">Okunmuş Mesajları Gör</a>
+<a href="/Message/Index" class="btn btn-primary">Okunmamış Mesajlara Geri Dön.</a>

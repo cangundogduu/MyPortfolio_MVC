@@ -24,6 +24,27 @@ namespace MyPortfolio_MVC.Controllers
             return PartialView(value);
         }
 
+        public ActionResult DeleteMessage(int id)
+        {
+            var value= db.TblMessages.Find(id);
+            db.TblMessages.Remove(value);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult ReadMessage()
+        {
+            var value=db.TblMessages.Where(x=>x.IsRead==true).ToList();
+            return View(value);
+        }
+
+        public ActionResult ReadMessageDetail(int id)
+        {
+            var value= db.TblMessages.Find(id);
+            value.IsRead = true;
+            db.SaveChanges();
+            return PartialView(value);
+        }
         
     }
 }
